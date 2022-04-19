@@ -1,0 +1,13 @@
+#map {
+    height: 100vh;
+}
+
+.test {
+    width: 500px;
+    height: 300px;
+}
+
+#container {
+    width: 500px;
+    height: 400px;
+}
