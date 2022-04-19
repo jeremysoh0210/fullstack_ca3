@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Course notes example code</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        #map {
+            height: 100vh;
+        }
+
+        .test {
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+
+    <!-- Google Maps -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQRTMuRO4K1AyH9fFr6zH7Kd2qSwz3Wuk&libraries=places"></script>
+    <script src="firstpage.js"></script>
+    <script src="data.json"></script>
+</head>
+
+<body>
+    <div class="row pe-0">
+        <div class="col-1 pe-0 bg-primary">
+            <div class="nav flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="btn btn-primary p-3 rounded-0" href="firstpage.html">Home</a>
+                <a class="btn btn-primary p-3 rounded-0" href="index.html">2nd Page</a>
+                <a class="btn btn-primary p-3 rounded-0" href="index.html">Function 1</a>
+                <a class="btn btn-primary p-3 rounded-0" href="index.html">Function 2</a>
+                <a class="btn btn-primary p-3 rounded-0" href="index.html">Function 3</a>
+                <a class="btn btn-primary p-3 rounded-0" href="index.html">Filter</a>
+                <a class="btn btn-primary p-3 rounded-0" href="index.html">Filter</a>
+            </div>
+        </div>
+        <div class="col-11 ps-0">
+            <div class="container-fluid p-0">
+                <p class="h5 text-center">The 2022 Commonwealth Games will be held in Birmingham, UK, from 28th July to
+                    8th August.
+                </p>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
