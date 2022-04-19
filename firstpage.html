@@ -23,18 +23,51 @@
 
 <body>
     <div class="row pe-0 ps-0">
-        <div class="col-1 pe-0 bg-primary">
+        <div class="col-2 pe-0 bg-primary">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="btn btn-primary p-3 rounded-0" href="firstpage.html">Home</a>
                 <a class="btn btn-primary p-3 rounded-0" href="index.html">2nd Page</a>
-                <a class="btn btn-primary p-3 rounded-0" href="index.html">Function 1</a>
-                <a class="btn btn-primary p-3 rounded-0" href="index.html">Function 2</a>
-                <a class="btn btn-primary p-3 rounded-0" href="index.html">Function 3</a>
                 <a class="btn btn-primary p-3 rounded-0" href="index.html">Filter</a>
-                <a class="btn btn-primary p-3 rounded-0" href="index.html">Sort</a>
+
+                <div class="m-3 text-light">
+                    <div class="form-label text-start">Search:</div>
+                    <input class="form-control" id=search type=search name="q">
+                    <!-- <input class="btn btn-dark mt-3 float-start" type=button onclick=getNearbyServicesMarkers() id=submit
+                        value=Submit> -->
+                </div>
+
+                <div class="p-3 rounded-0 text-light">
+                    <div id=control-panel class="">
+                        <div class="form-label text-start">Start:</div>
+                        <input class="form-control" id=start type=text>
+
+                        <div class="form-label text-start">End:</div>
+                        <input class="form-control" id=end type=text>
+
+                        <input class="btn btn-light mt-3 float-start" type=button onclick=calculateRoute() id=submit
+                            value=Submit>
+                    </div>
+                </div>
+                <div>
+                    <div class="row ms-1 me-1">
+                        <button class="btn btn-light col m-1"><i class=material-icons
+                                onclick=calculateRoute("DRIVING")>directions_car</i></button>
+                        <button class="btn btn-light col m-1"><i class=material-icons
+                                onclick=calculateRoute("TRANSIT")>directions_bus</i></button>
+                    </div>
+                    <div class="row ms-1 me-1">
+                        <button class="btn btn-light col m-1"><i class=material-icons
+                                onclick=calculateRoute("BICYCLING")>directions_bike</i></button>
+                        <button class="btn btn-light col m-1"><i class=material-icons
+                                onclick=calculateRoute("WALKING")>directions_walk</i></button>
+                    </div>
+                </div>
+                <details id=directions class="container bg-light">
+                    <summary>Directions</summary>
+                </details>
             </div>
         </div>
-        <div class="col-11 ps-0">
+        <div class="col-10 ps-0">
             <div class="container-fluid p-0">
                 <p class="h4 text-center pt-3 pb-3">The Birmingham 2022 Commonwealth Games</p>
 

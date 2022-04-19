@@ -2,7 +2,7 @@ let json;
 $.getJSON('./data.json', function (data) {
     json = data;
 });
-
+let directionsRenderer = null
 window.onload = () => {
     // These constants must start at 0
     // These constants must match the data layout in the 'locations' array below
@@ -68,11 +68,22 @@ window.onload = () => {
     let map = new google.maps.Map(document.getElementById("map"), {
         zoom: 16,
         center: middlePoint,
+
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControlOptions: {
             mapTypeIds: ["roadmap", "hide_poi"]
         }
     })
+
+    new google.maps.places.Autocomplete(start)
+    new google.maps.places.Autocomplete(end)
+    directionsRenderer = new google.maps.DirectionsRenderer()
+    directionsRenderer.setMap(map)
+    directionsRenderer.setPanel(document.getElementById("directions"))
+    calculateRoute("DRIVING")
+
+    // service = new google.maps.places.PlacesService(map);
+    // service.findPlaceFromQuery({ query: "RockSalt", fields: ["name", "icon", "geometry"] }, getNearbyServicesMarkers)
 
     let request = {
         location: middlePoint,
@@ -91,7 +102,7 @@ window.onload = () => {
                     placeId: results[i].place_id
                 };
                 service.getDetails(request2, (results2, status) => {
-                    
+
                     let marker = new google.maps.Marker({
                         animation: google.maps.Animation.DROP,
                         position: new google.maps.LatLng(results2.geometry.location.lat(), results2.geometry.location.lng()),
@@ -122,6 +133,9 @@ window.onload = () => {
             infoWindow.open(map, marker)
         });
     });
+
+
+    // calculateRoute();
 }
 
 
@@ -137,9 +151,39 @@ function hidePointsOfInterestAndBusStops(map) {
         }
     ]
 
-    
+
     let styledMapType = new google.maps.StyledMapType(styles, { name: "POI Hidden", alt: "Hide Points of Interest" })
     map.mapTypes.set("hide_poi", styledMapType)
- 
+
     map.setMapTypeId("hide_poi")
-}            
+}
+
+function calculateRoute(travelMode = "DRIVING") {
+    let start = document.getElementById("start").value
+    let end = document.getElementById("end").value
+
+    if (start === "" || end === "") {
+        return
+    }
+
+    let request = {
+        origin: start,
+        destination: end,
+        travelMode: travelMode
+    }
+
+    directionsService = new google.maps.DirectionsService()
+    directionsService.route(request, (route, status) => {
+        if (status === google.maps.DirectionsStatus.OK) {
+            directionsRenderer.setDirections(route)
+        }
+    })
+}
+
+function getNearbyServicesMarkers(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+        results.map(result => {
+            createMarker(result)
+        })
+    }
+}
