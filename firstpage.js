@@ -137,8 +137,9 @@ function hidePointsOfInterestAndBusStops(map) {
         }
     ]
 
+    
     let styledMapType = new google.maps.StyledMapType(styles, { name: "POI Hidden", alt: "Hide Points of Interest" })
     map.mapTypes.set("hide_poi", styledMapType)
-
+ 
     map.setMapTypeId("hide_poi")
 }            
