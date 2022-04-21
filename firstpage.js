@@ -76,6 +76,7 @@ window.onload = () => {
     })
 
     new google.maps.places.Autocomplete(start)
+    new google.maps.places.Autocomplete(midpoint)
     new google.maps.places.Autocomplete(end)
     directionsRenderer = new google.maps.DirectionsRenderer()
     directionsRenderer.setMap(map)
@@ -168,6 +169,7 @@ function hidePointsOfInterestAndBusStops(map) {
 
 function calculateRoute(travelMode = "DRIVING") {
     let start = document.getElementById("start").value
+    let midpoint = document.getElementById("midpoint").value
     let end = document.getElementById("end").value
 
     if (start === "" || end === "") {
@@ -178,6 +180,17 @@ function calculateRoute(travelMode = "DRIVING") {
         origin: start,
         destination: end,
         travelMode: travelMode
+    }
+
+    if (midpoint != "") {
+        let waypoints = [];
+        waypoints.push({
+            location: midpoint,
+            stopover: true,
+        });
+
+        request.waypoints = waypoints;
+        request.optimizeWaypoints = true;
     }
 
     directionsService = new google.maps.DirectionsService()
