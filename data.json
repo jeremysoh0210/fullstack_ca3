@@ -3,6 +3,6 @@
     "longitude": "-1.9026911",
     "radius": 80,
     "type": [
-        "restaurant"
+        "cafe", "restaurant"
     ]
 }

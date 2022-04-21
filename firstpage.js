@@ -85,38 +85,46 @@ window.onload = () => {
     // service = new google.maps.places.PlacesService(map);
     // service.findPlaceFromQuery({ query: "RockSalt", fields: ["name", "icon", "geometry"] }, getNearbyServicesMarkers)
 
-    let request = {
-        location: middlePoint,
-        radius: json.radius,
-        type: json.type
-    };
+    for (let i = 0; i < json.type.length; ++i) {
+        let request = {
+            location: middlePoint,
+            radius: json.radius,
+            type: json.type[i]
+        };
 
-    let service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, (results, status) => {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                // console.log(results[i].geometry.location.lat());
-                console.log(results[i]);
+        let service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, (results, status) => {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    let request2 = {
+                        placeId: results[i].place_id
+                    };
 
-                let request2 = {
-                    placeId: results[i].place_id
-                };
-                service.getDetails(request2, (results2, status) => {
+                    service.getDetails(request2, (results2, status) => {
+                        if (status == google.maps.GeocoderStatus.OK && !results2.hasOwnProperty("permanently_closed")) {
+                            console.log(results2);
 
-                    let marker = new google.maps.Marker({
-                        animation: google.maps.Animation.DROP,
-                        position: new google.maps.LatLng(results2.geometry.location.lat(), results2.geometry.location.lng()),
-                        icon: "http://maps.google.com/mapfiles/kml/pal2/icon32.png",
-                        map: map
+                            let latitude = results2.geometry.location.lat();
+                            let longitude = results2.geometry.location.lng();
+
+                            let marker = new google.maps.Marker({
+                                animation: google.maps.Animation.DROP,
+                                position: new google.maps.LatLng(latitude, longitude),
+                                icon: "http://maps.google.com/mapfiles/kml/pal2/icon32.png",
+                                map: map
+                            });
+
+                            google.maps.event.addListener(marker, "click", () => {
+                                infoWindow.setContent(results2.name + "<br><strong>" + (results2.opening_hours.isOpen() ? "Open Now" : "Closed") + "</strong>")
+                                infoWindow.open(map, marker)
+                            });
+                        }
                     });
-                    google.maps.event.addListener(marker, "click", () => {
-                        infoWindow.setContent(results2.name)
-                        infoWindow.open(map, marker)
-                    });
-                });
+                }
             }
-        }
-    });
+        });
+
+    }
 
     hidePointsOfInterestAndBusStops(map);
 
