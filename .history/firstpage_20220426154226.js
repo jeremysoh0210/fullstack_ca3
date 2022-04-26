@@ -4,7 +4,7 @@ $.getJSON('./data.json', function (data) {
 });
 let directionsRenderer = null
 
-let placeType = null
+
 let map=null
 window.onload = () => {
 
@@ -130,13 +130,7 @@ window.onload = () => {
                 }
             }
         });
-               
-        map.addListener("click", (mapsMouseEvent) => 
-        {
-            
-            latLng = mapsMouseEvent.latLng.toJSON()
-            displayMap()
-        })
+
     }
 
     hidePointsOfInterestAndBusStops(map);
@@ -245,7 +239,6 @@ function calculateRoute(travelMode = "DRIVING") {
 let infoWindow = new google.maps.InfoWindow()
 function createMarker(place)
             {
-            
                 let icon = {
                     url: place.icon, // url
                     scaledSize: new google.maps.Size(30, 30) // scale the image to an icon size
@@ -257,13 +250,6 @@ function createMarker(place)
                     position: place.geometry.location
                 })
 
-                google.maps.event.addListener(marker, "click", () =>
-                {
-                    infoWindow.setContent(place.name)
-                    infoWindow.open(map, marker)
-                })
-                markers.push(marker)
-                
                 google.maps.event.addListener(marker, "click", () =>
                 {
                     infoWindow.setContent(place.name)

@@ -130,13 +130,7 @@ window.onload = () => {
                 }
             }
         });
-               
-        map.addListener("click", (mapsMouseEvent) => 
-        {
-            
-            latLng = mapsMouseEvent.latLng.toJSON()
-            displayMap()
-        })
+
     }
 
     hidePointsOfInterestAndBusStops(map);

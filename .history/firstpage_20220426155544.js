@@ -130,7 +130,7 @@ window.onload = () => {
                 }
             }
         });
-               
+        hidePointsOfInterest(map)
         map.addListener("click", (mapsMouseEvent) => 
         {
             

@@ -130,7 +130,8 @@ window.onload = () => {
                 }
             }
         });
-               
+
+                
         map.addListener("click", (mapsMouseEvent) => 
         {
             

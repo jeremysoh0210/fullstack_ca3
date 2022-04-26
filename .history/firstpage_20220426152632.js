@@ -4,7 +4,7 @@ $.getJSON('./data.json', function (data) {
 });
 let directionsRenderer = null
 
-let placeType = null
+
 let map=null
 window.onload = () => {
 
@@ -130,13 +130,7 @@ window.onload = () => {
                 }
             }
         });
-               
-        map.addListener("click", (mapsMouseEvent) => 
-        {
-            
-            latLng = mapsMouseEvent.latLng.toJSON()
-            displayMap()
-        })
+
     }
 
     hidePointsOfInterestAndBusStops(map);
@@ -157,34 +151,7 @@ window.onload = () => {
 }
 
 
-function displayMap()
-{
-    let service = new google.maps.places.PlacesService(map)                                               
-        
-    service.nearbySearch({
-        location: latLng, // centre of the search
-        radius: 1000, // radius (in metres) of the search
-        type: placeType
-        }, getNearbyServicesMarkers)                                        
 
-    map.setZoom(15)
-    map.panTo(new google.maps.LatLng(latLng.lat, latLng.lng))    
-}
-
-
-let markers = []
-function getNearbyServicesMarkers(results, status)
-{
-    markers.map(marker => marker.setVisible(false))
-    markers = []
-    if (status === google.maps.places.PlacesServiceStatus.OK)
-    {
-        results.map(result =>
-        {
-            createMarker(result)
-        })                   
-    }
-}
 
 
 
@@ -245,7 +212,6 @@ function calculateRoute(travelMode = "DRIVING") {
 let infoWindow = new google.maps.InfoWindow()
 function createMarker(place)
             {
-            
                 let icon = {
                     url: place.icon, // url
                     scaledSize: new google.maps.Size(30, 30) // scale the image to an icon size
@@ -257,13 +223,6 @@ function createMarker(place)
                     position: place.geometry.location
                 })
 
-                google.maps.event.addListener(marker, "click", () =>
-                {
-                    infoWindow.setContent(place.name)
-                    infoWindow.open(map, marker)
-                })
-                markers.push(marker)
-                
                 google.maps.event.addListener(marker, "click", () =>
                 {
                     infoWindow.setContent(place.name)
