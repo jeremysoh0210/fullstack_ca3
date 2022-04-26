@@ -3,7 +3,13 @@ $.getJSON('./data.json', function (data) {
     json = data;
 });
 let directionsRenderer = null
+
+
+let map=null
 window.onload = () => {
+
+
+
     // These constants must start at 0
     // These constants must match the data layout in the 'locations' array below
     const CONTENT = 0,
@@ -65,7 +71,7 @@ window.onload = () => {
 
     let middlePoint = new google.maps.LatLng(json.latitude, json.longitude);
 
-    let map = new google.maps.Map(document.getElementById("map"), {
+     map = new google.maps.Map(document.getElementById("map"), {
         zoom: 16,
         center: middlePoint,
 
@@ -96,7 +102,7 @@ window.onload = () => {
         let service = new google.maps.places.PlacesService(map);
         service.nearbySearch(request, (results, status) => {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
+                for (let i = 0; i < results.length; i++) {
                     let request2 = {
                         placeId: results[i].place_id
                     };
@@ -142,10 +148,11 @@ window.onload = () => {
             infoWindow.open(map, marker)
         });
     });
-
-
-    // calculateRoute();
 }
+
+
+
+
 
 
 function hidePointsOfInterestAndBusStops(map) {
@@ -201,10 +208,47 @@ function calculateRoute(travelMode = "DRIVING") {
     })
 }
 
+
+let infoWindow = new google.maps.InfoWindow()
+function createMarker(place)
+            {
+                let icon = {
+                    url: place.icon, // url
+                    scaledSize: new google.maps.Size(30, 30) // scale the image to an icon size
+                }
+                
+                let marker = new google.maps.Marker({
+                    map: map,
+                    icon: icon,
+                    position: place.geometry.location
+                })
+
+                google.maps.event.addListener(marker, "click", () =>
+                {
+                    infoWindow.setContent(place.name)
+                    infoWindow.open(map, marker)
+                })
+            }
+
+
 function getNearbyServicesMarkers(results, status) {
+
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         results.map(result => {
             createMarker(result)
         })
     }
 }
+
+function testSearch(searchString)
+{
+    let services_centre_location ={lat: 52.4796992, lng: -1.9026911} 
+    let service = new google.maps.places.PlacesService(map);
+    service.nearbySearch({
+        location: services_centre_location, // centre of the search
+        radius: 500, // radius (in metres) of the search
+        type: searchString
+    }, getNearbyServicesMarkers)
+    //service.findPlaceFromQuery({ query: searchString, fields: ["name", "type", "icon", "geometry"] }, getNearbyServicesMarkers)
+}
+

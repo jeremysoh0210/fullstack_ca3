@@ -14,14 +14,20 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="firstpage.css">
+
+    <script src="firstpage.js"></script>
+    
+    <script src="data.json"></script>
+
     <!-- Google Maps -->
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQRTMuRO4K1AyH9fFr6zH7Kd2qSwz3Wuk&libraries=places"></script>
-    <script src="firstpage.js"></script>
-    <script src="data.json"></script>
+    
+       
 </head>
 
 <body>
+    
     <div class="row pe-0 ps-0">
         <div class="col-2 pe-0 bg-primary">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -32,8 +38,9 @@
                 <div class="m-3 text-light">
                     <div class="form-label text-start">Search:</div>
                     <input class="form-control" id=search type=search name="q">
-                    <!-- <input class="btn btn-dark mt-3 float-start" type=button onclick=getNearbyServicesMarkers() id=submit
-                        value=Submit> -->
+                    <input class="btn btn-dark mt-3 float-start" type=button onclick="testSearch(document.getElementById('search').value)"
+                        id=submit value=Submit>
+
                 </div>
 
                 <div class="p-3 rounded-0 text-light">
