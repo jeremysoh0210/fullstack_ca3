@@ -172,7 +172,7 @@ function displayMap() {
 
     service.nearbySearch({
         location: latLng,
-        radius: 1000,
+        radius: 500,
         type: placeType
     }, getNearbyServicesMarkers)
 
@@ -310,7 +310,7 @@ function createMarker(place) {
     })
 
     google.maps.event.addListener(marker, "click", () => {
-        infoWindow.setContent(place.name)
+        infoWindow.setContent(location[CONTENT])
         infoWindow.open(map, marker)
     })
     markers.push(marker)

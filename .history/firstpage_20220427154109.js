@@ -249,6 +249,13 @@ function calculateRoute(travelMode = "DRIVING") {
         }
     });
 
+    displayRoute(
+        "Perth, WA",
+        "Sydney, NSW",
+        directionsService,
+        directionsRenderer
+    );
+
     directionsService.route(request, (route, status) => {
         if (status === google.maps.DirectionsStatus.OK) {
             directionsRenderer.setDirections(route)
@@ -295,9 +302,11 @@ function computeTotalDistance(result) {
 window.initMap = initMap;
 
 //click and show nearby icon
-
+infoWindow = new google.maps.InfoWindow()
 function createMarker(place) {
-    infoWindow = new google.maps.InfoWindow()
+
+     
+
     let icon = {
         url: place.icon, // url
         scaledSize: new google.maps.Size(30, 30)
@@ -315,7 +324,10 @@ function createMarker(place) {
     })
     markers.push(marker)
 
-
+    // google.maps.event.addListener(marker, "click", () => {
+    //     infoWindow.setContent(place.name)
+    //     infoWindow.open(map, marker)
+    // })
 }
 
 //search by name function

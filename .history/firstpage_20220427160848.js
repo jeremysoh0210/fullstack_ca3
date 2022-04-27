@@ -310,7 +310,7 @@ function createMarker(place) {
     })
 
     google.maps.event.addListener(marker, "click", () => {
-        infoWindow.setContent(place.name)
+        infoWindow.setContent(location[CONTENT])
         infoWindow.open(map, marker)
     })
     markers.push(marker)

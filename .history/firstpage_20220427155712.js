@@ -249,6 +249,7 @@ function calculateRoute(travelMode = "DRIVING") {
         }
     });
 
+
     directionsService.route(request, (route, status) => {
         if (status === google.maps.DirectionsStatus.OK) {
             directionsRenderer.setDirections(route)
@@ -315,7 +316,10 @@ function createMarker(place) {
     })
     markers.push(marker)
 
-
+    // google.maps.event.addListener(marker, "click", () => {
+    //     infoWindow.setContent(place.name)
+    //     infoWindow.open(map, marker)
+    // })
 }
 
 //search by name function

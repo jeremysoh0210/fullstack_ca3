@@ -315,7 +315,10 @@ function createMarker(place) {
     })
     markers.push(marker)
 
-
+    // google.maps.event.addListener(marker, "click", () => {
+    //     infoWindow.setContent(place.name)
+    //     infoWindow.open(map, marker)
+    // })
 }
 
 //search by name function
