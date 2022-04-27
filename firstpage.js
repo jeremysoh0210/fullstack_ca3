@@ -5,10 +5,17 @@ $.getJSON('./data.json', function (data) {
 let directionsRenderer = null
 
 let placeType = null
-let map=null
+let map = null
 window.onload = () => {
 
-
+    new google.maps.places.Autocomplete(start)
+    new google.maps.places.Autocomplete(midpoint)
+    new google.maps.places.Autocomplete(end)
+    new google.maps.places.Autocomplete(search)
+    directionsRenderer = new google.maps.DirectionsRenderer()
+    directionsRenderer.setMap(map)
+    directionsRenderer.setPanel(document.getElementById("directions"))
+    calculateRoute("DRIVING")
 
     // These constants must start at 0
     // These constants must match the data layout in the 'locations' array below
@@ -71,26 +78,21 @@ window.onload = () => {
 
     let middlePoint = new google.maps.LatLng(json.latitude, json.longitude);
 
-     map = new google.maps.Map(document.getElementById("map"), {
+    map = new google.maps.Map(document.getElementById("map"), {
         zoom: 16,
         center: middlePoint,
+
+
 
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControlOptions: {
             mapTypeIds: ["roadmap", "hide_poi"]
         }
+
+
     })
 
-    new google.maps.places.Autocomplete(start)
-    new google.maps.places.Autocomplete(midpoint)
-    new google.maps.places.Autocomplete(end)
-    directionsRenderer = new google.maps.DirectionsRenderer()
-    directionsRenderer.setMap(map)
-    directionsRenderer.setPanel(document.getElementById("directions"))
-    calculateRoute("DRIVING")
 
-    // service = new google.maps.places.PlacesService(map);
-    // service.findPlaceFromQuery({ query: "RockSalt", fields: ["name", "icon", "geometry"] }, getNearbyServicesMarkers)
 
     for (let i = 0; i < json.type.length; ++i) {
         let request = {
@@ -130,10 +132,9 @@ window.onload = () => {
                 }
             }
         });
-               
-        map.addListener("click", (mapsMouseEvent) => 
-        {
-            
+
+        map.addListener("click", (mapsMouseEvent) => {
+
             latLng = mapsMouseEvent.latLng.toJSON()
             displayMap()
         })
@@ -143,10 +144,19 @@ window.onload = () => {
 
     let infoWindow = new google.maps.InfoWindow();
     locations.map(location => {
+        const svgMarker = {
+            path: "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+            fillColor: "blue",
+            fillOpacity: 0.6,
+            strokeWeight: 0,
+            rotation: 0,
+            scale: 2,
+            anchor: new google.maps.Point(15, 30),
+        };
         let marker = new google.maps.Marker({
             animation: google.maps.Animation.DROP,
             position: new google.maps.LatLng(location[LATITUDE], location[LONGITUDE]),
-            icon: "https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png",
+            icon: svgMarker,
             map: map
         });
         google.maps.event.addListener(marker, "click", () => {
@@ -156,37 +166,29 @@ window.onload = () => {
     });
 }
 
+function displayMap() {
+    let service = new google.maps.places.PlacesService(map)
 
-function displayMap()
-{
-    let service = new google.maps.places.PlacesService(map)                                               
-        
     service.nearbySearch({
-        location: latLng, // centre of the search
-        radius: 1000, // radius (in metres) of the search
+        location: latLng,
+        radius: 1000,
         type: placeType
-        }, getNearbyServicesMarkers)                                        
+    }, getNearbyServicesMarkers)
 
     map.setZoom(15)
-    map.panTo(new google.maps.LatLng(latLng.lat, latLng.lng))    
+    map.panTo(new google.maps.LatLng(latLng.lat, latLng.lng))
 }
-
 
 let markers = []
-function getNearbyServicesMarkers(results, status)
-{
+function getNearbyServicesMarkers(results, status) {
     markers.map(marker => marker.setVisible(false))
     markers = []
-    if (status === google.maps.places.PlacesServiceStatus.OK)
-    {
-        results.map(result =>
-        {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+        results.map(result => {
             createMarker(result)
-        })                   
+        })
     }
 }
-
-
 
 function hidePointsOfInterestAndBusStops(map) {
     let styles = [
@@ -199,14 +201,12 @@ function hidePointsOfInterestAndBusStops(map) {
             stylers: [{ visibility: "off" }],
         }
     ]
-
-
     let styledMapType = new google.maps.StyledMapType(styles, { name: "POI Hidden", alt: "Hide Points of Interest" })
     map.mapTypes.set("hide_poi", styledMapType)
-
     map.setMapTypeId("hide_poi")
 }
 
+//draggable origin point and destination point
 function calculateRoute(travelMode = "DRIVING") {
     let start = document.getElementById("start").value
     let midpoint = document.getElementById("midpoint").value
@@ -233,7 +233,28 @@ function calculateRoute(travelMode = "DRIVING") {
         request.optimizeWaypoints = true;
     }
 
-    directionsService = new google.maps.DirectionsService()
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer({
+        draggable: true,
+        map,
+        panel: document.getElementById("directions"),
+    });
+
+    directionsRenderer.addListener("directions_changed", () => {
+        const directions = directionsRenderer.getDirections();
+
+        if (directions) {
+            computeTotalDistance(directions);
+        }
+    });
+
+    displayRoute(
+        "Perth, WA",
+        "Sydney, NSW",
+        directionsService,
+        directionsRenderer
+    );
+
     directionsService.route(request, (route, status) => {
         if (status === google.maps.DirectionsStatus.OK) {
             directionsRenderer.setDirections(route)
@@ -241,37 +262,72 @@ function calculateRoute(travelMode = "DRIVING") {
     })
 }
 
+function displayRoute(origin, destination, service, display) {
+    service
+        .route({
+            origin: origin,
+            destination: destination,
+            waypoints: [
+                { location: "Adelaide, SA" },
+                { location: "Broken Hill, NSW" },
+            ],
+            travelMode: google.maps.TravelMode.DRIVING,
+            avoidTolls: true,
+        })
+        .then((result) => {
+            display.setDirections(result);
+        })
+        .catch((e) => {
+            alert("Could not display directions due to: " + e);
+        });
+}
 
+function computeTotalDistance(result) {
+    let total = 0;
+    const myroute = result.routes[0];
+
+    if (!myroute) {
+        return;
+    }
+
+    for (let i = 0; i < myroute.legs.length; i++) {
+        total += myroute.legs[i].distance.value;
+    }
+
+    total = total / 1000;
+    document.getElementById("total").innerHTML = total + " km";
+}
+
+window.initMap = initMap;
+
+//click and show nearby icon
 let infoWindow = new google.maps.InfoWindow()
-function createMarker(place)
-            {
-            
-                let icon = {
-                    url: place.icon, // url
-                    scaledSize: new google.maps.Size(30, 30) // scale the image to an icon size
-                }
-                
-                let marker = new google.maps.Marker({
-                    map: map,
-                    icon: icon,
-                    position: place.geometry.location
-                })
+function createMarker(place) {
 
-                google.maps.event.addListener(marker, "click", () =>
-                {
-                    infoWindow.setContent(place.name)
-                    infoWindow.open(map, marker)
-                })
-                markers.push(marker)
-                
-                google.maps.event.addListener(marker, "click", () =>
-                {
-                    infoWindow.setContent(place.name)
-                    infoWindow.open(map, marker)
-                })
-            }
+    let icon = {
+        url: place.icon, // url
+        scaledSize: new google.maps.Size(30, 30)
+    }
 
+    let marker = new google.maps.Marker({
+        map: map,
+        icon: icon,
+        position: place.geometry.location
+    })
 
+    google.maps.event.addListener(marker, "click", () => {
+        infoWindow.setContent(place.name)
+        infoWindow.open(map, marker)
+    })
+    markers.push(marker)
+
+    google.maps.event.addListener(marker, "click", () => {
+        infoWindow.setContent(place.name)
+        infoWindow.open(map, marker)
+    })
+}
+
+//search by name function
 function getNearbyServicesMarkers(results, status) {
 
     if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -281,15 +337,8 @@ function getNearbyServicesMarkers(results, status) {
     }
 }
 
-function testSearch(searchString)
-{
-    let services_centre_location ={lat: 52.4796992, lng: -1.9026911} 
+function testSearch(searchString) {
     let service = new google.maps.places.PlacesService(map);
-    service.nearbySearch({
-        location: services_centre_location, // centre of the search
-        radius: 500, // radius (in metres) of the search
-        type: searchString
-    }, getNearbyServicesMarkers)
-    //service.findPlaceFromQuery({ query: searchString, fields: ["name", "type", "icon", "geometry"] }, getNearbyServicesMarkers)
+    service.findPlaceFromQuery({ query: searchString, fields: ["name", "type", "icon", "geometry"] }, getNearbyServicesMarkers)
 }
 
