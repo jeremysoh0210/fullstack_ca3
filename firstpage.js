@@ -9,7 +9,7 @@ let map = null
 window.onload = () => {
 
     new google.maps.places.Autocomplete(start)
-    new google.maps.places.Autocomplete(midpoint)
+    
     new google.maps.places.Autocomplete(end)
     new google.maps.places.Autocomplete(search)
     directionsRenderer = new google.maps.DirectionsRenderer()
@@ -209,7 +209,8 @@ function hidePointsOfInterestAndBusStops(map) {
 //draggable origin point and destination point
 function calculateRoute(travelMode = "DRIVING") {
     let start = document.getElementById("start").value
-    let midpoint = document.getElementById("midpoint").value
+    // let midpoint = document.getElementById("midpoint").value
+
     let end = document.getElementById("end").value
 
     if (start === "" || end === "") {
@@ -222,16 +223,22 @@ function calculateRoute(travelMode = "DRIVING") {
         travelMode: travelMode
     }
 
-    if (midpoint != "") {
-        let waypoints = [];
-        waypoints.push({
-            location: midpoint,
-            stopover: true,
-        });
-
-        request.waypoints = waypoints;
-        request.optimizeWaypoints = true;
+    let waypoints = [];
+    let midPointCount = document.getElementById("midpointcount").value
+    for (let i = 0; i < midPointCount; i++) {
+        let midpoint = document.getElementById(`midpoint${i+1}`).value
+        
+        
+        if (midpoint != "") {
+            
+            waypoints.push({
+                location: midpoint,
+                stopover: true,
+            });
+        }
     }
+    request.waypoints = waypoints;
+    request.optimizeWaypoints = true;
 
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer({
@@ -260,6 +267,17 @@ function calculateRoute(travelMode = "DRIVING") {
             directionsRenderer.setDirections(route)
         }
     })
+}
+
+function generateMidPointFields() {
+    let midPointCount = document.getElementById("midpointcount").value
+    document.getElementById("forloop").innerHTML = "";
+    for (let i = 0; i < midPointCount; i++) {
+        document.getElementById("forloop").innerHTML += `<div class='form-label text-start'>Midpoint ${i + 1}:</div><input class='form-control' id='midpoint${i+1}' type='text'>`
+        setTimeout(() => {
+            new google.maps.places.Autocomplete(document.getElementById(`midpoint${i+1}`))
+        }, 50);
+    }   
 }
 
 function displayRoute(origin, destination, service, display) {
