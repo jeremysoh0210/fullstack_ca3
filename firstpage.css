@@ -11,3 +11,11 @@
     width: 500px;
     height: 400px;
 }
+
+.nav-pills .nav-link {
+    color: white !important;
+}
+
+.nav-pills .nav-link.active {
+    background: #212529;
+}

@@ -7,10 +7,11 @@ let directionsRenderer = null
 let placeType = null
 let map = null
 let infoWindow
+
 window.onload = () => {
-     
+
     new google.maps.places.Autocomplete(start)
-    
+
     new google.maps.places.Autocomplete(end)
     new google.maps.places.Autocomplete(search)
     directionsRenderer = new google.maps.DirectionsRenderer()
@@ -82,18 +83,11 @@ window.onload = () => {
     map = new google.maps.Map(document.getElementById("map"), {
         zoom: 16,
         center: middlePoint,
-
-
-
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControlOptions: {
             mapTypeIds: ["roadmap", "hide_poi"]
         }
-
-
     })
-
-
 
     for (let i = 0; i < json.type.length; ++i) {
         let request = {
@@ -112,7 +106,7 @@ window.onload = () => {
 
                     service.getDetails(request2, (results2, status) => {
                         if (status == google.maps.GeocoderStatus.OK && !results2.hasOwnProperty("permanently_closed")) {
-                            console.log(results2);
+                            // console.log(results2);
 
                             let latitude = results2.geometry.location.lat();
                             let longitude = results2.geometry.location.lng();
@@ -135,7 +129,6 @@ window.onload = () => {
         });
 
         map.addListener("click", (mapsMouseEvent) => {
-
             latLng = mapsMouseEvent.latLng.toJSON()
             displayMap()
         })
@@ -165,29 +158,49 @@ window.onload = () => {
             infoWindow.open(map, marker)
         });
     });
+
+    document.getElementById("places-dropdown").addEventListener("click", (event) => {
+        event.stopPropagation();
+    });
 }
 
-function displayMap() {
-    let service = new google.maps.places.PlacesService(map)
+function displayMap(type) {
+    // markers.map((marker) => {
+    //     marker.setMap(null);
+    // });
+    // markers = [];
 
-    service.nearbySearch({
-        location: latLng,
-        radius: 1000,
-        type: placeType
-    }, getNearbyServicesMarkers)
+    console.log(markers);
 
-    map.setZoom(15)
-    map.panTo(new google.maps.LatLng(latLng.lat, latLng.lng))
+    if (type != null) {
+        placeType = type;
+
+        let qwe = new google.maps.LatLng(52.4796992, -1.9026911)
+        let service = new google.maps.places.PlacesService(map)
+
+        service.nearbySearch({
+            location: qwe.toJSON(),
+            radius: 1000,
+            type: placeType
+        }, getNearbyServicesMarkers)
+
+
+        map.setZoom(15)
+        map.panTo(qwe)
+    }
 }
 
 let markers = []
-function getNearbyServicesMarkers(results, status) {
-    markers.map(marker => marker.setVisible(false))
-    markers = []
+async function getNearbyServicesMarkers(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-        results.map(result => {
-            createMarker(result)
+        await results.map(result => {
+            createMarker(result);
         })
+
+        markers.map(marker => {
+            console.log(marker);
+            marker.setVisible(true)
+        });
     }
 }
 
@@ -227,11 +240,11 @@ function calculateRoute(travelMode = "DRIVING") {
     let waypoints = [];
     let midPointCount = document.getElementById("midpointcount").value
     for (let i = 0; i < midPointCount; i++) {
-        let midpoint = document.getElementById(`midpoint${i+1}`).value
-        
-        
+        let midpoint = document.getElementById(`midpoint${i + 1}`).value
+
+
         if (midpoint != "") {
-            
+
             waypoints.push({
                 location: midpoint,
                 stopover: true,
@@ -267,11 +280,11 @@ function generateMidPointFields() {
     let midPointCount = document.getElementById("midpointcount").value
     document.getElementById("forloop").innerHTML = "";
     for (let i = 0; i < midPointCount; i++) {
-        document.getElementById("forloop").innerHTML += `<div class='form-label text-start'>Midpoint ${i + 1}:</div><input class='form-control' id='midpoint${i+1}' type='text'>`
+        document.getElementById("forloop").innerHTML += `<div class='form-label text-start'>Midpoint ${i + 1}:</div><input class='form-control' id='midpoint${i + 1}' type='text'>`
         setTimeout(() => {
-            new google.maps.places.Autocomplete(document.getElementById(`midpoint${i+1}`))
+            new google.maps.places.Autocomplete(document.getElementById(`midpoint${i + 1}`))
         }, 50);
-    }   
+    }
 }
 
 function displayRoute(origin, destination, service, display) {
@@ -330,24 +343,14 @@ function createMarker(place) {
     google.maps.event.addListener(marker, "click", () => {
         infoWindow.setContent(place.name)
         infoWindow.open(map, marker)
-    })
-    markers.push(marker)
+    });
 
+    markers.push(marker);
 
-}
-
-//search by name function
-function getNearbyServicesMarkers(results, status) {
-
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-        results.map(result => {
-            createMarker(result)
-        })
-    }
+    // markers.map(marker => marker.setVisible(true))
 }
 
 function testSearch(searchString) {
     let service = new google.maps.places.PlacesService(map);
     service.findPlaceFromQuery({ query: searchString, fields: ["name", "type", "icon", "geometry"] }, getNearbyServicesMarkers)
 }
-
