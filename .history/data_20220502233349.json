@@ -3,6 +3,6 @@
     "longitude": "-1.9026911",
     "radius": 80,
     "type": [
-        "cafe", "restaurant","airport","amusement_park","casino","atm"
+        "cafe", "restaurant","airport",
     ]
 }

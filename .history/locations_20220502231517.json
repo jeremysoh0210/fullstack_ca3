@@ -41,36 +41,12 @@
             "long":-1.9038627142168278
         },
         {
-            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/b2cc1b88-fc6d-4134-99df-934cc35a0038/8963-190724-Logo-Option-Games-Mode-2.jpg?width=450",
-            "title": "SANDWELL AQUATICS CENTRE",
-            "description1": "Once you are inside the venue, there will be lots of different activities to get involved in, so be sure to arrive in plenty of time to make the most of what’s on offer.",
-            "description2": "Head to the spectator information point to meet the friendly team who will be on hand to help with any enquiries you have. The information point is also the home to our family rest area, available to use at any time during the session, should you require it. Buggy and wheelchair storage will also be located a short distance from the information point and can be left at your own risk.",
-            "lat":52.48971207226646,
-            "long":-1.9912528953052326
-        },
-        {
-            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/e073e6ae-489a-4bb5-b2a0-39735e268be3/University-of-Birmingham-01.jpg?width=912&height=456",
-            "title": "Birmingham Hockey and Squash Centre",
-            "description1": "In most cases, gates to the venue will open 90 minutes before the session time displayed on your ticket, allowing plenty of time to soak up the atmosphere, make the most of our photo opportunities and so you can take part in the on-site activities.",
-            "description2": "Birmingham 2022 will be a safe and secure event and so, as with other major events, security checks will be carried out before you enter the venue. Please try and minimise the number of personal belongings you are bringing as this will mean a smoother and quicker entry into the venue.",
-            "lat":52.45335769481921,
-            "long": -1.9279073476658637
-        },
-        {
-            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/a0d6f1db-ce23-4c26-a150-67a2876d8c07/West-Park-Wolverhampton.jpg?width=1932",
-            "title": "West Park",
-            "description1": "Competition venues will be as accessible as possible, utilising existing, and incorporating temporary, accessible facilities and services. Birmingham 2022 aims to provide a consistent, high level of accessibility, across all competition venues.",
-            "description2": "Across the Birmingham 2022 venues there will be a variety of facilities and services such as accessible shuttle buses, blue badge parking, assistance dog spending areas, quiet spaces, wheelchair charging and accessible food, drink, and merchandise units and hearing augmentation.",
-            "lat":52.5924796243789, 
-            "long": -2.140853801639718
-        },
-        {
-            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/7caeede4-23b5-4801-8ef3-595ab1a8c0de/Victoria-Square.jpg?width=1932",
-            "title": "Victoria Square",
-            "description1": "The square will be a welcome sight for the finishers in all four races that will be held on the first Saturday of the Games, with the men’s marathon, women’s marathon and the men’s and women’s T53/T54 events all taking place on the same course which will start at Smithfield, another Birmingham city centre venue that will serve as the home of beach volleyball and basketball 3×3 and wheelchair basketball 3×3 during the Games.",
-            "description2": "Free drinking water will be available through our sustainable water bars provided by Severn Trent Water. Birmingham 2022 is committed to reducing the amount of single use plastic waste created by the event.",
-            "lat":52.5924796243789, 
-            "long": -2.140853801639718
+            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/8ca38cef-bfed-444f-8758-ea88d62f8729/Edgbaston-2-.jpg?width=450",
+            "title": "Edgbaston Stadium",
+            "description1": "Close to Birmingham city centre, Edgbaston Cricket Ground is a regular host of both domestic and international cricket.",
+            "description2": "The ground is outdoor with some cover, with accessible routes around the ground. There will be a range of existing and temporary accessible facilities at this venue such as a changing places toilet.",
+            "lat":52.45596485,
+            "long":-1.9038627142168278
         },
         {
             "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/b4f53377-3cfa-476b-ae1e-e806616388fc/image001.jpg?width=450",
@@ -79,6 +55,6 @@
             "description2": "Located on Queen Elizabeth Olympic Park, the venue has step free access, good public transport links and existing facilities such as a changing places toilet.",
             "lat":51.550376799999995,
             "long":-0.015239363509253154
-        }   
+        }
     ]
 }

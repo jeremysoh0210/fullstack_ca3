@@ -1,0 +1,60 @@
+{
+    "locations": [
+        {
+            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/e59b4d62-0ce8-407f-9bd6-2671b88753df/Alexander-Stadium-Mockup.jpg?width=966",
+            "title": "Alexander Stadium",
+            "description1": "Located in Perry Barr, just outside of the city centre, the stadium will host Athletics and the Games opening and closing ceremonies.",
+            "description2": "The stadium is currently being redeveloped for the Games. The works will see improved pedestrian routes, installation of a changing places toilet and improved accessible seating options.",
+            "lat":52.5272241,
+            "long":-1.9074096
+        },
+        {
+            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/3fe090bd-7a90-455c-8690-41cbb9d0de32/Arena-Birmingham.jpg?width=966",
+            "title": "Arena Birmingham",
+            "description1": "The venue has step free access and existing facilities such as a changing places toilet.",
+            "description2": "Arena Birmingham will host artistic and rhythmic gymnastics. The venue is in the middle of the city centre with excellent public transport links and close to other attractions.",
+            "lat":52.479717449999995,
+            "long":-1.915034421788946
+        },
+        {
+            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/b4f53377-3cfa-476b-ae1e-e806616388fc/image001.jpg?width=966",
+            "title": "Cannock Chase Forest",
+            "description1": "Cannock Chase is a large forest which is part of Forestry England.",
+            "description2": "At this venue there are some hard-standing pathways which lead to the outdoor ticketed spectator area which is a predominately grassed area. The trails on the Chase outside of this area may become muddy and wet in bad weather so may not be suitable for those with mobility scooters or those with limited mobility.",
+            "lat":52.7521955,
+            "long":-1.973821430582701
+        },
+        {
+            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/04/07/f76f4ec9-d58a-496c-8f1b-351d3a6b4378/Ricoh_RT-13-July.jpg?width=966",
+            "title": "Coventry Stadium & Arena",
+            "description1": "Judo and Wrestling will take place in the arena, which is an indoor venue. Rugby 7s will take place in the stadium, which is outdoor with some cover.",
+            "description2": "Externally there are some changes in level with ramped access round the building. Internally the venue has step free access and will have a range of existing accessible facilities and temporary facilities such as a changing places toilet.",
+            "lat":52.44816495,
+            "long":-1.4971183945757918
+        },
+        {
+            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/8ca38cef-bfed-444f-8758-ea88d62f8729/Edgbaston-2-.jpg?width=966",
+            "title": "Edgbaston Stadium",
+            "description1": "Close to Birmingham city centre, Edgbaston Cricket Ground is a regular host of both domestic and international cricket.",
+            "description2": "The ground is outdoor with some cover, with accessible routes around the ground. There will be a range of existing and temporary accessible facilities at this venue such as a changing places toilet.",
+            "lat":52.45596485,
+            "long":-1.9038627142168278
+        },
+        {
+            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/8ca38cef-bfed-444f-8758-ea88d62f8729/Edgbaston-2-.jpg?width=966",
+            "title": "Edgbaston Stadium",
+            "description1": "Close to Birmingham city centre, Edgbaston Cricket Ground is a regular host of both domestic and international cricket.",
+            "description2": "The ground is outdoor with some cover, with accessible routes around the ground. There will be a range of existing and temporary accessible facilities at this venue such as a changing places toilet.",
+            "lat":52.45596485,
+            "long":-1.9038627142168278
+        },
+        {
+            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/b4f53377-3cfa-476b-ae1e-e806616388fc/image001.jpg?width=450",
+            "title": "Lee Valley Velopark",
+            "description1": "The indoor cycling center was one of the venues used for the London 2012 Olympic and Paralympic Games.",
+            "description2": "Located on Queen Elizabeth Olympic Park, the venue has step free access, good public transport links and existing facilities such as a changing places toilet.",
+            "lat":51.550376799999995,
+            "long":-0.015239363509253154
+        }
+    ]
+}

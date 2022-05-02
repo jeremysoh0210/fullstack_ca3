@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Birmingham 2022 Commonwealth Games123123</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="firstpage.css">
+
+    <script src="firstpage.js"></script>
+
+    <script src="data.json"></script>
+
+    <!-- Google Maps -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQRTMuRO4K1AyH9fFr6zH7Kd2qSwz3Wuk&libraries=places"></script>
+
+
+</head>
+
+<body>
+
+    <div class="row pe-0 ps-0">
+        <div class="col-2 pe-0 bg-light">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="btn p-3 rounded-0" href="firstpage.html">Home</a>
+                <a class="btn p-3 rounded-0  " href="index.html">2nd Page</a>
+
+
+                <div class="dropdown btn p-3 rounded-0">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Different locations
+                    </button>
+
+
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="placeType" name=placeType value=airport
+                                onclick=placeType="airport" ;displayMap()>
+                            <label class="form-check-label" for="airport">
+                                Airport
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="amusement_park" name=placeType
+                                value=amusement_park onclick=placeType="amusement_park" ;displayMap()>
+                            <label class="form-check-label" for="amusement_park">
+                                Amusement Park
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="aquarium" name=placeType value=aquarium
+                                onclick=placeType="aquarium" ;displayMap()>
+                            <label class="form-check-label" for="aquarium">
+                                Aquarium
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="art_gallery" name=placeType
+                                value=art_gallery onclick=placeType="art_gallery" ;displayMap()>
+                            <label class="form-check-label" for="art_gallery">
+                                Art Gallery
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="atm" name=placeType value=atm
+                                onclick=placeType="atm" ;displayMap()>
+                            <label class="form-check-label" for="atm">
+                                Atm
+                            </label>
+                        </div>
+
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="bakery" name=placeType value=bakery
+                                onclick=placeType="bakery" ;displayMap()>
+                            <label class="form-check-label" for="bakery">
+                                Bakery
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="bar" name=placeType value=bar
+                                onclick=placeType="bar" ;displayMap()>
+                            <label class="form-check-label" for="bar">
+                                Bar
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="bowling_alley" name=placeType
+                                value=bowling_alley onclick=placeType="bowling_alley" ;displayMap()>
+                            <label class="form-check-label" for="bowling_alley">
+                                Bowling Alley
+                            </label>
+                        </div>
+
+                        <li><a class="dropdown-item">
+                                <label for=cafe>Cafe:</label><input name=placeType id=cafe type=checkbox value=cafe
+                                    onclick=placeType="cafe" ;displayMap()>
+                            </a></li>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cafe" name=placeType value=cafe
+                                onclick=placeType="cafe" ;displayMap()>
+                            <label class="form-check-label" for="cafe">
+                                Cafe
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="casino" name=placeType value=casino
+                                onclick=placeType="casino" ;displayMap()>
+                            <label class="form-check-label" for="casino">
+                                Casino
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="doctor" name=placeType value=doctor
+                                onclick=placeType="doctor" ;displayMap()>
+                            <label class="form-check-label" for="doctor">
+                                Doctor
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gym" name=placeType value=gym
+                                onclick=placeType="gym" ;displayMap()>
+                            <label class="form-check-label" for="gym">
+                                Gym
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="liquor_store" name=placeType
+                                value=liquor_store onclick=placeType="liquor_store" ;displayMap()>
+                            <label class="form-check-label" for="liquor_store">
+                                Liquor Store
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="movie_theater" name=placeType
+                                value=movie_theater onclick=placeType="movie_theater" ;displayMap()>
+                            <label class="form-check-label" for="movie_theater">
+                                Movie Theater
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="museum" name=placeType value=museum
+                                onclick=placeType="museum" ;displayMap()>
+                            <label class="form-check-label" for="museum">
+                                Museum
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="night_club" name=placeType
+                                value=night_club onclick=placeType="night_club" ;displayMap()>
+                            <label class="form-check-label" for="night_club">
+                                Night Club
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="restaurant" name=placeType
+                                value=restaurant onclick=placeType="restaurant" ;displayMap()>
+                            <label class="form-check-label" for="restaurant">
+                                Restaurant
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="spa" name=placeType value=spa
+                                onclick=placeType="spa" ;displayMap()>
+                            <label class="form-check-label" for="spa">
+                                Spa
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="zoo" name=placeType value=zoo
+                                onclick=placeType="zoo" ;displayMap()>
+                            <label class="form-check-label" for="zoo">
+                                Zoo
+                            </label>
+                        </div>
+
+                    </ul>
+                </div>
+
+                <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item ms-3" role="presentation">
+                        <button class="nav-link active" id="pills-search-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-search" type="button" role="tab" aria-controls="pills-search"
+                            aria-selected="true">Search</button>
+                    </li>
+                    <li class="nav-item me-3" role="presentation">
+                        <button class="nav-link" id="pills-directions-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-directions" type="button" role="tab" aria-controls="pills-directions"
+                            aria-selected="false">Directions</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-search" role="tabpanel"
+                        aria-labelledby="pills-search-tab">
+                        <div class="m-3 text-light">
+                            <div class="form-label text-start text-dark">Search:</div>
+                            <input class="form-control" id=search type=search name="q">
+                            <input class="btn btn-secondary mt-3 w-100 float-start mb-3" type=button
+                                onclick="testSearch(document.getElementById('search').value)" id=submit value=Submit>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade text-dark" id="pills-directions" role="tabpanel"
+                        aria-labelledby="pills-directions-tab">
+                        <div class="p-3 rounded-0 text-light">
+                            <div id=control-panel class="">
+                                <div class="p-3 rounded-0 text-light">
+                                    <div id=control-panel class="">
+                                        <div class="form-label text-start text-dark">Start:</div>
+                                        <input class="form-control" id=start type=text>
+
+                                        <div class="form-label text-start text-dark">Number of midpoint:</div>
+                                        <input class="form-control" id=midpointcount type=number max="5" min="0"
+                                            onchange="generateMidPointFields()" value="0">
+                                        <div id="forloop"></div>
+                                        <!-- 
+                        <div class="form-label text-start">Midpoint:</div>
+                        <input class="form-control" id=midpoint type=text> -->
+
+                                        <div class="form-label text-start text-dark">End:</div>
+                                        <input class="form-control" id=end type=text>
+
+                                        <input class="btn btn-secondary mt-3 w-100 float-start" type=button
+                                            onclick=calculateRoute() id=submit value=Submit>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="row ms-1 me-1">
+                        <button class="btn btn-outline-secondary col m-1"><i class=material-icons
+                                onclick=calculateRoute("DRIVING")>directions_car</i></button>
+                        <button class="btn btn-outline-secondary col m-1"><i class=material-icons
+                                onclick=calculateRoute("TRANSIT")>directions_bus</i></button>
+                    </div>
+                    <div class="row ms-1 me-1">
+                        <button class="btn btn-outline-secondary col m-1"><i class=material-icons
+                                onclick=calculateRoute("BICYCLING")>directions_bike</i></button>
+                        <button class="btn btn-outline-secondary   col m-1"><i class=material-icons
+                                onclick=calculateRoute("WALKING")>directions_walk</i></button>
+                    </div>
+                </div>
+                <details id=directions class="container bg-light">
+                    <p>Total Distance: <span id="total"></span></p>
+                    <summary>Directions</summary>
+                </details>
+            </div>
+        </div>
+        <div class="col-10 ps-0">
+            <div class="container-fluid p-0">
+                <p class="h4 text-center pt-3 pb-3">The Birmingham 2022 Commonwealth Games</p>
+
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

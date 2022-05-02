@@ -58,17 +58,9 @@
         },
         {
             "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/a0d6f1db-ce23-4c26-a150-67a2876d8c07/West-Park-Wolverhampton.jpg?width=1932",
-            "title": "West Park",
+            "title": "Birmingham Hockey and Squash Centre",
             "description1": "Competition venues will be as accessible as possible, utilising existing, and incorporating temporary, accessible facilities and services. Birmingham 2022 aims to provide a consistent, high level of accessibility, across all competition venues.",
             "description2": "Across the Birmingham 2022 venues there will be a variety of facilities and services such as accessible shuttle buses, blue badge parking, assistance dog spending areas, quiet spaces, wheelchair charging and accessible food, drink, and merchandise units and hearing augmentation.",
-            "lat":52.5924796243789, 
-            "long": -2.140853801639718
-        },
-        {
-            "imgUrl": "https://resources.cwg-qbr.pulselive.com/photo-resources/2022/02/08/7caeede4-23b5-4801-8ef3-595ab1a8c0de/Victoria-Square.jpg?width=1932",
-            "title": "Victoria Square",
-            "description1": "The square will be a welcome sight for the finishers in all four races that will be held on the first Saturday of the Games, with the men’s marathon, women’s marathon and the men’s and women’s T53/T54 events all taking place on the same course which will start at Smithfield, another Birmingham city centre venue that will serve as the home of beach volleyball and basketball 3×3 and wheelchair basketball 3×3 during the Games.",
-            "description2": "Free drinking water will be available through our sustainable water bars provided by Severn Trent Water. Birmingham 2022 is committed to reducing the amount of single use plastic waste created by the event.",
             "lat":52.5924796243789, 
             "long": -2.140853801639718
         },
@@ -79,6 +71,6 @@
             "description2": "Located on Queen Elizabeth Olympic Park, the venue has step free access, good public transport links and existing facilities such as a changing places toilet.",
             "lat":51.550376799999995,
             "long":-0.015239363509253154
-        }   
+        }
     ]
 }
