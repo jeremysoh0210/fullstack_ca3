@@ -90,7 +90,7 @@
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="art_gallery" name=placeType value=art_gallery onclick=placeType="art_gallery";displayMap() >
                     <label class="form-check-label" for="art_gallery">
-                      Art Gallery
+                      Aquarium
                     </label>
                   </div>
 
@@ -154,63 +154,83 @@
                       Gym
                     </label>
                   </div>
+                  
+                    <li><a class="dropdown-item" >
+                    <label for=jewelry_store>Jewellery Store:  </label><input name=placeType id=jewelry_store type=checkbox value=jewelry_store onclick=placeType="jewelry_store";displayMap() >
+                  </a></li> 
 
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="liquor_store" name=placeType value=liquor_store onclick=placeType="liquor_store";displayMap() >
-                    <label class="form-check-label" for="liquor_store">
-                      Liquor Store
-                    </label>
-                  </div>
 
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="movie_theater" name=placeType value=movie_theater onclick=placeType="movie_theater";displayMap() >
-                    <label class="form-check-label" for="movie_theater">
-                      Movie Theater
-                    </label>
-                  </div>
+                    <li><a class="dropdown-item" >
+                    <label for=liquor_store>Liquor Store:  </label><input name=placeType id=liquor_store type=checkbox value=liquor_store onclick=placeType="liquor_store";displayMap() >
+                  </a></li> 
 
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="museum" name=placeType value=museum onclick=placeType="museum";displayMap() >
-                    <label class="form-check-label" for="museum">
-                      Museum
-                    </label>
-                  </div>
 
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="night_club" name=placeType value=night_club onclick=placeType="night_club";displayMap() >
-                    <label class="form-check-label" for="night_club">
-                      Night Club
-                    </label>
-                  </div>
+                    <li><a class="dropdown-item" >
+                    <label for=lodging>Lodging:  </label><input name=placeType id=lodging type=checkbox value=lodging onclick=placeType="lodging";displayMap() >
+                  </a></li> 
 
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="restaurant" name=placeType value=restaurant onclick=placeType="restaurant";displayMap() >
-                    <label class="form-check-label" for="restaurant">
-                      Restaurant
-                    </label>
-                  </div>
 
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="spa" name=placeType value=spa onclick=placeType="spa";displayMap() >
-                    <label class="form-check-label" for="spa">
-                      Spa
-                    </label>
-                  </div>
+                    <li><a class="dropdown-item" >
+                    <label for=movie_theater>Movie Theatre:  </label><input name=placeType id=movie_theater type=checkbox value=movie_theater onclick=placeType="movie_theater";displayMap() >
+                  </a></li> 
 
-                 <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="zoo" name=placeType value=zoo onclick=placeType="zoo";displayMap() >
-                      <label class="form-check-label" for="zoo">
-                        Zoo
-                      </label>
-                    </div>
 
+                    <li><a class="dropdown-item" >
+                    <label for=museum>Museum:  </label><input name=placeType id=museum type=checkbox value=museum onclick=placeType="museum";displayMap() >
+                  </a></li> 
+
+
+                    <li><a class="dropdown-item" >
+                    <label for=night_club>Night Club:  </label><input name=placeType id=night_club type=checkbox value=night_club onclick=placeType="night_club";displayMap() >
+                  </a></li> 
+
+
+                    <li><a class="dropdown-item" >
+                    <label for=pharmacy>Pharmacy:  </label><input name=placeType id=pharmacy type=checkbox value=pharmacy onclick=placeType="pharmacy";displayMap() >
+                  </a></li> 
+
+
+                    <li><a class="dropdown-item" >
+                    <label for=post_office>Post Office:  </label><input name=placeType id=post_office type=checkbox value=post_office onclick=placeType="post_office";displayMap() >
+                  </a></li> 
+
+
+                    <li><a class="dropdown-item" >
+                    <label for=restaurant>Restaurant:  </label><input name=placeType id=restaurant type=checkbox value=restaurant onclick=placeType="restaurant";displayMap() >
+                  </a></li> 
+
+
+                    <li><a class="dropdown-item" >
+                    <label for=spa>Spa:  </label><input name=placeType id=spa type=checkbox value=spa onclick=placeType="spa";displayMap() >
+                  </a></li> 
+
+
+                    <li><a class="dropdown-item" >
+                    <label for=train_station>Train Station:  </label><input name=placeType id=train_station type=checkbox value=train_station onclick=placeType="train_station";displayMap() >
+                  </a></li> 
+
+
+                    <li><a class="dropdown-item" >
+                    <label for=bus_station>Bus Station:  </label><input name=placeType id=bus_station type=checkbox value=bus_station onclick=placeType="bus_station";displayMap() >
+                  </a></li> 
+
+
+                    <li><a class="dropdown-item" >
+                    <label for=supermarket>Supermarket:  </label><input name=placeType id=supermarket type=checkbox value=supermarket onclick=placeType="supermarket";displayMap() >
+                  </a></li> 
+
+                  
+                    <li><a class="dropdown-item" >
+                    <label for=zoo>Zoo:  </label><input name=placeType id=zoo type=checkbox value=zoo onclick=placeType="zoo";displayMap() >
+
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
                   </ul>
                 </div>
 
                 <div class="m-3 text-light">
                     <div class="form-label text-start">Search:</div>
                     <input class="form-control" id=search type=search name="q">
-                    <input class="btn btn-secondary mt-3 float-start" type=button onclick="testSearch(document.getElementById('search').value)"
+                    <input class="btn btn-dark mt-3 float-start" type=button onclick="testSearch(document.getElementById('search').value)"
                         id=submit value=Submit>
 
                 </div>
@@ -230,21 +250,23 @@
                         <div class="form-label text-start">End:</div>
                         <input class="form-control" id=end type=text>
 
-                        <input class="btn btn-secondary mt-3 float-start" type=button onclick=calculateRoute() id=submit
+
+
+                        <input class="btn btn-light mt-3 float-start" type=button onclick=calculateRoute() id=submit
                             value=Submit>
                     </div>
                 </div>
                 <div>
                     <div class="row ms-1 me-1">
-                        <button class="btn btn-outline-secondary col m-1"><i class=material-icons
+                        <button class="btn btn-light col m-1"><i class=material-icons
                                 onclick=calculateRoute("DRIVING")>directions_car</i></button>
-                        <button class="btn btn-outline-secondary col m-1"><i class=material-icons
+                        <button class="btn btn-light col m-1"><i class=material-icons
                                 onclick=calculateRoute("TRANSIT")>directions_bus</i></button>
                     </div>
                     <div class="row ms-1 me-1">
-                        <button class="btn btn-outline-secondary col m-1"><i class=material-icons
+                        <button class="btn btn-light col m-1"><i class=material-icons
                                 onclick=calculateRoute("BICYCLING")>directions_bike</i></button>
-                        <button class="btn btn-outline-secondary   col m-1"><i class=material-icons
+                        <button class="btn btn-light col m-1"><i class=material-icons
                                 onclick=calculateRoute("WALKING")>directions_walk</i></button>
                     </div>
                 </div>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Birmingham 2022 Commonwealth Games123123</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="firstpage.css">
+
+    <script src="firstpage.js"></script>
+    
+    <script src="data.json"></script>
+
+    <!-- Google Maps -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQRTMuRO4K1AyH9fFr6zH7Kd2qSwz3Wuk&libraries=places"></script>
+    
+       
+</head>
+
+<body>
+  <!-- <nav class="navbar navbar-light navbar-light bg-light style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar w/ text</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          Navbar text with an inline element
+        </span>
+      </div>
+    </div> -->
+    <div class="row pe-0 ps-0">
+        <div class="col-2 pe-0 bg-light">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="btn p-3 rounded-0" href="firstpage.html">Home</a>
+                <a class="btn p-3 rounded-0  " href="index.html">2nd Page</a>
+               
+                
+                <div class="dropdown btn p-3 rounded-0">
+                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                   Different locations
+                  </button>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Default checkbox
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Checked checkbox
+                    </label>
+                  </div>
+                  <ul class="dropdown-menu form-check" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" 
+                    <label for=airport>Airport:</label><input name=placeType id=airport type=checkbox value=airport onclick=placeType="airport";displayMap() >
+                  </a></li>
+                    <li><a class="dropdown-item" >
+                    <label for=amusement_park>Amusement Park:</label><input name=placeType id=amusement_park type=checkbox value=amusement_park onclick=placeType="amusement_park";displayMap() >
+                  </a></li>
+                    <li><a class="dropdown-item" >
+                    <label for=aquarium>Aquarium:</label><input name=placeType id=aquarium type=checkbox value=aquarium onclick=placeType="aquarium";displayMap() >
+                  </a></li>
+                    <li><a class="dropdown-item" >
+                    <label for=art_gallery>Art Gallery:</label><input name=placeType id=art_gallery type=checkbox value=art_gallery onclick=placeType="art_gallery";displayMap() >
+                  </a></li>
+                    <li><a class="dropdown-item" >
+                    <label for=atm>Atm:</label><input name=placeType id=atm type=checkbox value=atm onclick=placeType="atm";displayMap() >
+                  </a></li>
+                    <li><a class="dropdown-item" >
+                    <label for=bakery>Bakery:</label><input name=placeType id=bakery type=checkbox value=bakery onclick=placeType="bakery";displayMap() >
+                  </a></li> 
+                  <li><a class="dropdown-item" >
+                    <label for=bar>Bar:</label><input name=placeType id=bar type=checkbox value=bar onclick=placeType="bar";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=bowling_alley>Bowling Alley:</label><input name=placeType id=bowling_alley type=checkbox value=bowling_alley onclick=placeType="bowling_alley";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=cafe>Cafe:</label><input name=placeType id=cafe type=checkbox value=cafe onclick=placeType="cafe";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=campground>Campground:</label><input name=placeType id=campground type=checkbox value=campground onclick=placeType="campground";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=casino>Casino:</label><input name=placeType id=casino type=checkbox value=casino onclick=placeType="casino";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=doctor>Doctor:</label><input name=placeType id=doctor type=checkbox value=doctor onclick=placeType="doctor";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=embassy>Embassy:</label><input name=placeType id=embassy type=checkbox value=embassy onclick=placeType="embassy";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=florist>Florist:  </label><input name=placeType id=florist type=checkbox value=florist onclick=placeType="florist";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=gym>Gym:</label><input name=placeType id=gym type=checkbox value=gym onclick=placeType="gym";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=jewelry_store>Jewellery Store:  </label><input name=placeType id=jewelry_store type=checkbox value=jewelry_store onclick=placeType="jewelry_store";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=liquor_store>Liquor Store:  </label><input name=placeType id=liquor_store type=checkbox value=liquor_store onclick=placeType="liquor_store";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=lodging>Lodging:  </label><input name=placeType id=lodging type=checkbox value=lodging onclick=placeType="lodging";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=movie_theater>Movie Theatre:  </label><input name=placeType id=movie_theater type=checkbox value=movie_theater onclick=placeType="movie_theater";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=museum>Museum:  </label><input name=placeType id=museum type=checkbox value=museum onclick=placeType="museum";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=night_club>Night Club:  </label><input name=placeType id=night_club type=checkbox value=night_club onclick=placeType="night_club";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=pharmacy>Pharmacy:  </label><input name=placeType id=pharmacy type=checkbox value=pharmacy onclick=placeType="pharmacy";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=post_office>Post Office:  </label><input name=placeType id=post_office type=checkbox value=post_office onclick=placeType="post_office";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=restaurant>Restaurant:  </label><input name=placeType id=restaurant type=checkbox value=restaurant onclick=placeType="restaurant";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=spa>Spa:  </label><input name=placeType id=spa type=checkbox value=spa onclick=placeType="spa";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=train_station>Train Station:  </label><input name=placeType id=train_station type=checkbox value=train_station onclick=placeType="train_station";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=bus_station>Bus Station:  </label><input name=placeType id=bus_station type=checkbox value=bus_station onclick=placeType="bus_station";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=supermarket>Supermarket:  </label><input name=placeType id=supermarket type=checkbox value=supermarket onclick=placeType="supermarket";displayMap() >
+                  </a></li> 
+                    <li><a class="dropdown-item" >
+                    <label for=zoo>Zoo:  </label><input name=placeType id=zoo type=checkbox value=zoo onclick=placeType="zoo";displayMap() >
+
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
+
+                <div class="m-3 text-light">
+                    <div class="form-label text-start">Search:</div>
+                    <input class="form-control" id=search type=search name="q">
+                    <input class="btn btn-dark mt-3 float-start" type=button onclick="testSearch(document.getElementById('search').value)"
+                        id=submit value=Submit>
+
+                </div>
+
+                <div class="p-3 rounded-0 text-light">
+                    <div id=control-panel class="">
+                        <div class="form-label text-start">Start:</div>
+                        <input class="form-control" id=start type=text>
+
+                        <div class="form-label text-start">Number of midpoint:</div>
+                        <input class="form-control" id=midpointcount type=number max="5" min="0" onchange="generateMidPointFields()" value="0">
+                        <div id="forloop"></div>
+<!-- 
+                        <div class="form-label text-start">Midpoint:</div>
+                        <input class="form-control" id=midpoint type=text> -->
+
+                        <div class="form-label text-start">End:</div>
+                        <input class="form-control" id=end type=text>
+
+
+
+                        <input class="btn btn-light mt-3 float-start" type=button onclick=calculateRoute() id=submit
+                            value=Submit>
+                    </div>
+                </div>
+                <div>
+                    <div class="row ms-1 me-1">
+                        <button class="btn btn-light col m-1"><i class=material-icons
+                                onclick=calculateRoute("DRIVING")>directions_car</i></button>
+                        <button class="btn btn-light col m-1"><i class=material-icons
+                                onclick=calculateRoute("TRANSIT")>directions_bus</i></button>
+                    </div>
+                    <div class="row ms-1 me-1">
+                        <button class="btn btn-light col m-1"><i class=material-icons
+                                onclick=calculateRoute("BICYCLING")>directions_bike</i></button>
+                        <button class="btn btn-light col m-1"><i class=material-icons
+                                onclick=calculateRoute("WALKING")>directions_walk</i></button>
+                    </div>
+                </div>
+                <details id=directions class="container bg-light">
+                    <p>Total Distance: <span id="total"></span></p>
+                    <summary>Directions</summary>
+                </details>
+            </div>
+        </div>
+        <div class="col-10 ps-0">
+            <div class="container-fluid p-0">
+                <p class="h4 text-center pt-3 pb-3">The Birmingham 2022 Commonwealth Games</p>
+
+                <div id="map"></div>
+                <p class="h5 text-center pb-3">The Birmingham 2022 Commonwealth Games is a West Midlands
+                    Celebration with Birmingham at its heart. The venues being used for the Games stretch from Coventry,
+                    Solihull, and Royal Leamington Spa to Cannock Chase Forest, Royal Sutton Coldfield, and
+                    Wolverhampton.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

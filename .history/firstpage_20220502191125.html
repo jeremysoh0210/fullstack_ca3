@@ -90,7 +90,7 @@
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="art_gallery" name=placeType value=art_gallery onclick=placeType="art_gallery";displayMap() >
                     <label class="form-check-label" for="art_gallery">
-                      Art Gallery
+                      Aquarium
                     </label>
                   </div>
 
@@ -197,6 +197,10 @@
                     </label>
                   </div>
 
+                    <li><a class="dropdown-item" >
+                    <label for=bus_station>Bus Station:  </label><input name=placeType id=bus_station type=checkbox value=bus_station onclick=placeType="bus_station";displayMap() >
+                  </a></li> 
+
                  <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="zoo" name=placeType value=zoo onclick=placeType="zoo";displayMap() >
                       <label class="form-check-label" for="zoo">
@@ -210,7 +214,7 @@
                 <div class="m-3 text-light">
                     <div class="form-label text-start">Search:</div>
                     <input class="form-control" id=search type=search name="q">
-                    <input class="btn btn-secondary mt-3 float-start" type=button onclick="testSearch(document.getElementById('search').value)"
+                    <input class="btn btn-dark mt-3 float-start" type=button onclick="testSearch(document.getElementById('search').value)"
                         id=submit value=Submit>
 
                 </div>
@@ -230,21 +234,23 @@
                         <div class="form-label text-start">End:</div>
                         <input class="form-control" id=end type=text>
 
-                        <input class="btn btn-secondary mt-3 float-start" type=button onclick=calculateRoute() id=submit
+
+
+                        <input class="btn btn-light mt-3 float-start" type=button onclick=calculateRoute() id=submit
                             value=Submit>
                     </div>
                 </div>
                 <div>
                     <div class="row ms-1 me-1">
-                        <button class="btn btn-outline-secondary col m-1"><i class=material-icons
+                        <button class="btn btn-light col m-1"><i class=material-icons
                                 onclick=calculateRoute("DRIVING")>directions_car</i></button>
-                        <button class="btn btn-outline-secondary col m-1"><i class=material-icons
+                        <button class="btn btn-light col m-1"><i class=material-icons
                                 onclick=calculateRoute("TRANSIT")>directions_bus</i></button>
                     </div>
                     <div class="row ms-1 me-1">
-                        <button class="btn btn-outline-secondary col m-1"><i class=material-icons
+                        <button class="btn btn-light col m-1"><i class=material-icons
                                 onclick=calculateRoute("BICYCLING")>directions_bike</i></button>
-                        <button class="btn btn-outline-secondary   col m-1"><i class=material-icons
+                        <button class="btn btn-light col m-1"><i class=material-icons
                                 onclick=calculateRoute("WALKING")>directions_walk</i></button>
                     </div>
                 </div>
