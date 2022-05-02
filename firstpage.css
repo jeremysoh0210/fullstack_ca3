@@ -13,9 +13,9 @@
 }
 
 .nav-pills .nav-link {
-    color: white !important;
+    color: black !important;
 }
 
 .nav-pills .nav-link.active {
-    background: #212529;
+    background: lightgrey;
 }
