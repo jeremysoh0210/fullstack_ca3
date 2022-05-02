@@ -37,7 +37,7 @@ window.onload = () => {
                             <img class=test src=${location.imgUrl}>
                             <div id=text>
                                 <h3>${location.title}</h3>
-                                <h5>${location.sportsPlayed}</h5>
+                                <h4>${location.sportsPlayed}</h4>
                                 <p>${location.description1}</p>
                                 <p>${location.description2}</p>
                             </div>
